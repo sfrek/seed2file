@@ -10,9 +10,12 @@ import (
 )
 
 type SeedFile struct {
-	Type      string `json:"type"`
-	TimeStamp string `json:"timestamp"`
+	Execution string `json:"execution"`
 	Files     []File `json:"files"`
+	Hostname  string `json:"hostname"`
+	Resultdir string `json:"resultdir"`
+	TimeStamp string `json:"timestamp"`
+	Type      string `json:"type"`
 }
 
 type File struct {
