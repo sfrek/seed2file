@@ -44,7 +44,7 @@ func check(e error) {
 func main() {
 
 	flag.Parse()
-	fmt.Println(flag.CommandLine.NFlag)
+	fmt.Println(flag.CommandLine.NFlag())
 
 	F1 := File{
 		Name:   "F1.name",
@@ -87,4 +87,17 @@ func main() {
 	h := md5.New()
 	io.WriteString(h, fmt.Sprintf("%s", dj))
 	fmt.Printf("temporal.json: %x\n", h.Sum(nil))
+
+	high, err := ioutil.ReadFile(encodedFilePath)
+	check(err)
+	z := md5.New()
+	io.WriteString(z, fmt.Sprintf("%s", high))
+	F3 := File{
+		Name:   "F3.name",
+		MD5Sum: fmt.Sprintf("%x", z.Sum(nil)),
+		Data:   fmt.Sprintf("%s", high),
+	}
+
+	seedOperator.Files = append(seedOperator.Files, F3)
+	fmt.Println(seedOperator)
 }
