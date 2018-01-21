@@ -1,0 +1,5 @@
+*.hex
+*.base64
+test
+sources
+bash
