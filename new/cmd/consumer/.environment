@@ -1,0 +1,5 @@
+export AMQP_SERVER=localhost
+export AMQP_VHOST=hckd
+export AMQP_USERNAME=scanner
+export AMQP_PASSWORD=scanner
+export AMQP_QUEUE=pusher
